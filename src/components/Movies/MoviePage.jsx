@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import SearchQuery from "../SearchBar/SearchQuery";
-
+import LoadMore from "../LoadMore/LoadMore";
 const MoviesPage = () => {
   const [movies, setMovies] = useState([]);
   const [page, setPage] = useState(1);
@@ -102,11 +102,11 @@ const MoviesPage = () => {
         ))}
       </div>
 
-      {/* <LoadMore
+       <LoadMore
         onClick={() => {
           setPage(page + 1);
         }}
-      /> */}
+      /> 
     </div>
   );
 };
