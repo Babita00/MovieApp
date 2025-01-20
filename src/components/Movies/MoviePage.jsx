@@ -30,7 +30,7 @@ const MoviesPage = () => {
       }
     } catch (error) {
       console.log(error);
-      
+
       setMovies(null); // Set to null if there's an error
     }
   };
@@ -63,14 +63,18 @@ const MoviesPage = () => {
   };
 
   return (
-    <div className="p-8 bg-gray-100 min-h-screen">
-      <h1 className="text-3xl font-bold text-center mb-6 text-gray-800">Movies</h1>
+    <div className="container p-8 bg-gray-100 min-h-screen">
+      <h1 className="text-3xl font-bold text-center mb-6 text-gray-800">
+        Movies
+      </h1>
 
       <SearchQuery onTextChange={onSearchText} />
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {movies.map((movie, index) => (
-          <div key={`${movie.id}-${index}`} className="p-4 rounded-lg bg-white shadow-lg overflow-hidden border border-gray-200">
+          <div key={`${movie.id}-${index}`}
+            className="p-4 rounded-lg bg-white shadow-lg overflow-hidden border border-gray-200"
+          >
             {movie.poster_path && (
               <img
                 src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
@@ -79,13 +83,19 @@ const MoviesPage = () => {
               />
             )}
             <div className="p-4">
-              <h2 className="text-xl font-semibold text-gray-800 mb-2">{movie.title}</h2>
-              <p className="text-gray-600 text-sm mb-4 line-clamp-3">{movie.overview}</p>
-              <p className="text-gray-500 text-sm">
-                <span className="font-medium">Release Date:</span> {movie.release_date}
+              <h2 className="text-xl font-semibold text-gray-800 mb-2">
+                {movie.title}
+              </h2>
+              <p className="text-gray-600 text-sm mb-4 line-clamp-3">
+                {movie.overview}
               </p>
               <p className="text-gray-500 text-sm">
-                <span className="font-medium">Rating:</span> {movie.vote_average}
+                <span className="font-medium">Release Date:</span>{" "}
+                {movie.release_date}
+              </p>
+              <p className="text-gray-500 text-sm">
+                <span className="font-medium">Rating:</span>{" "}
+                {movie.vote_average}
               </p>
             </div>
           </div>
