@@ -2,10 +2,13 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import SearchQuery from "../SearchBar/SearchQuery";
 import LoadMore from "../LoadMore/LoadMore";
+import { useNavigate } from "react-router-dom";
 const MoviesPage = () => {
   const [movies, setMovies] = useState([]);
   const [page, setPage] = useState(1);
   const [search, setSearch] = useState("");
+
+  const navigate = useNavigate();
 
   const fetchMovies = async (page, searchQuery) => {
     let url = "https://api.themoviedb.org/3/movie/popular";
@@ -62,6 +65,11 @@ const MoviesPage = () => {
     setPage(1); // Reset page when search text changes
   };
 
+  const onMovieClick = (movie) => {
+    
+    navigate(`/movie-details/${movie.id}`);
+  };
+
   return (
     <div className="container p-8 bg-gray-100 min-h-screen ">
       <h1 className="text-3xl font-bold text-center mb-6 text-gray-800">
@@ -71,6 +79,7 @@ const MoviesPage = () => {
       <SearchQuery onTextChange={onSearchText} />
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+
         {movies.map((movie, index) => (
           <div key={`${movie.id}-${index}`}
             className="p-4 rounded-lg bg-white shadow-lg overflow-hidden border border-gray-200"
@@ -80,6 +89,7 @@ const MoviesPage = () => {
                 src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
                 alt={movie.original_title}
                 className="w-full h-64 object-cover rounded-lg opacity-90 hover:opacity-100 "
+                onClick={(movie) => onMovieClick(movie)}
               />
             )}
             <div className="p-4">
@@ -102,11 +112,11 @@ const MoviesPage = () => {
         ))}
       </div>
 
-       <LoadMore
+      <LoadMore
         onClick={() => {
           setPage(page + 1);
         }}
-      /> 
+      />
     </div>
   );
 };
