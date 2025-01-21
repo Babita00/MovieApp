@@ -63,7 +63,7 @@ const MoviesPage = () => {
   };
 
   return (
-    <div className="container p-8 bg-gray-100 min-h-screen">
+    <div className="container p-8 bg-gray-100 min-h-screen ">
       <h1 className="text-3xl font-bold text-center mb-6 text-gray-800">
         Movies
       </h1>
@@ -79,7 +79,7 @@ const MoviesPage = () => {
               <img
                 src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
                 alt={movie.original_title}
-                className="w-full h-64 object-cover rounded-lg"
+                className="w-full h-64 object-cover rounded-lg opacity-90 hover:opacity-100 "
               />
             )}
             <div className="p-4">
