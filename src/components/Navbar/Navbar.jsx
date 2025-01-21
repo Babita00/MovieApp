@@ -7,6 +7,7 @@ const Navbar = () => {
     e.preventDefault();
     navigate("/");
   };
+
   return (
     <div className=" p-4 h-15 w-full bg-black flex  ">
       <div>
@@ -32,6 +33,11 @@ const Navbar = () => {
           <li>
             <NavLink to="/contact" className="hover:text-grey-500">
               Contact
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/movie-details" className="hover:text-grey-500">
+              Movie Details
             </NavLink>
           </li>
         </ul>
