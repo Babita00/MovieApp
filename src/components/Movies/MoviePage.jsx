@@ -66,7 +66,8 @@ const MoviesPage = () => {
   };
 
   const onMovieClick = (movie) => {
-    
+    console.log(movie.id);
+    //send api key, language without changing its oiriginal route
     navigate(`/movie-details/${movie.id}`);
   };
 
@@ -79,9 +80,9 @@ const MoviesPage = () => {
       <SearchQuery onTextChange={onSearchText} />
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-
         {movies.map((movie, index) => (
-          <div key={`${movie.id}-${index}`}
+          <div
+            key={`${movie.id}-${index}`}
             className="p-4 rounded-lg bg-white shadow-lg overflow-hidden border border-gray-200"
           >
             {movie.poster_path && (
@@ -89,7 +90,7 @@ const MoviesPage = () => {
                 src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
                 alt={movie.original_title}
                 className="w-full h-64 object-cover rounded-lg opacity-90 hover:opacity-100 "
-                onClick={(movie) => onMovieClick(movie)}
+                onClick={() => onMovieClick(movie)}
               />
             )}
             <div className="p-4">
