@@ -1,6 +1,10 @@
+import Navbar from "../Navbar/Navbar";
 
 export const Contact = () => {
   return (
-    <div>Contact</div>
-  )
-}
+    <>
+      <Navbar />
+      <div>Contact</div>
+    </>
+  );
+};
