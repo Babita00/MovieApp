@@ -17,7 +17,7 @@ function App() {
     { path: "/", element:<Home/> },
     { path: "/about", element: <About/> },
     { path: "/contact", element:<Contact/> },
-    { path: "/movie-details/:id", element:<MovieDetails/> },
+    { path: "/movie-details/:id?", element:<MovieDetails/> },
     { path: "*", element:<PageNotFound/> },
   ]);
 
