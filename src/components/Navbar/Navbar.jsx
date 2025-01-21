@@ -10,6 +10,7 @@
           <ul className="flex space-x-6 text-white cursor-pointer">
             <li><a href="/"className="hover:text-grey-500 "/>Home</li>
             <li><a href="/"className="hover:text-grey-500"/>About</li>
+            <li><a href="/"className="hover:text-grey-500"/>Contact</li>
           </ul>
         </div>
     </div>
