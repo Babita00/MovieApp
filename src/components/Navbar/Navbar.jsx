@@ -1,4 +1,4 @@
-
+import { Link } from "react-router-dom"
  const Navbar = () => {
   return (
     <div className=" p-4 h-15 w-full bg-black flex  ">
@@ -8,9 +8,9 @@
 
         <div className="navbar-menu p-4 ">
           <ul className="flex space-x-6 text-white cursor-pointer">
-            <li><a href="/"className="hover:text-grey-500 "/>Home</li>
-            <li><a href="/"className="hover:text-grey-500"/>About</li>
-            <li><a href="/"className="hover:text-grey-500"/>Contact</li>
+            <li><Link to="/home"className="hover:text-grey-500 ">Home</Link></li>
+            <li><Link to="/about"className="hover:text-grey-500">About</Link></li>
+            <li><Link to="/contact"className="hover:text-grey-500">Contact</Link></li>
           </ul>
         </div>
     </div>
