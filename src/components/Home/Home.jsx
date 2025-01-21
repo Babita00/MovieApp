@@ -1,6 +1,6 @@
-
+import MoviesPage from "../Movies/MoviePage";
 export const Home = () => {
   return (
-    <div>Home</div>
+   <MoviesPage/>
   )
 }
