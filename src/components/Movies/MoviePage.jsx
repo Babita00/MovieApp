@@ -68,7 +68,7 @@ const MoviesPage = () => {
   const onMovieClick = (movie) => {
     console.log(movie.id);
     //send api key, language without changing its oiriginal route
-    navigate(`/movie-details/${movie.id}`);
+    navigate(`/movie-details/${movie.id}?api_key=844dba0bfd8f3a4f3799f6130ef9e335`);
   };
 
   return (
