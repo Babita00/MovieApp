@@ -35,7 +35,7 @@ export const MovieDetails = () => {
   }
 
   return (
-    <div className=" mx-auto p-6 bg-gray-900 text-white rounded-lg shadow-lg">
+    <div className="mx-auto p-6 bg-gray-900 text-white rounded-lg shadow-lg">
       <div className="flex bg-gray-700">
         <img
           className="w-full md:w-1/2 mx-auto rounded-lg shadow-md"
@@ -43,17 +43,13 @@ export const MovieDetails = () => {
           alt={movieDetails.title}
         />
 
-        <div className="flex flex-col">
-          <h1 className="text-3xl font-bold mb-4 text-center">
-            {movieDetails.title}
-          </h1>
-
-          <p className="mt-4 text-gray-300 flex flex-col mx-10">  
-            <strong className="text-white">PLOT:</strong>{" "}
+        <div className="md:ml-8 text-center md:text-left">
+          <h1 className="text-3xl font-bold mb-4">{movieDetails.title}</h1>
+          <p className="mt-4 text-gray-300">
+            <strong className="text-white">Description:</strong>{" "}
             {movieDetails.overview}
           </p>
-
-          <p className="mt-2 text-gray-300 mx-10">
+          <p className="mt-2 text-gray-300">
             <strong className="text-white">Rating:</strong>{" "}
             {movieDetails.vote_average} / 10
           </p>
