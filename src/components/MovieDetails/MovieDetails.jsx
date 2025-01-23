@@ -1,6 +1,8 @@
 import { useParams } from "react-router-dom";
+import { useState } from "react";
+import { useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
-import { useEffect, useState } from "react";
+import axios from "axios";
 
 export const MovieDetails = () => {
   const { id } = useParams();
@@ -12,11 +14,10 @@ export const MovieDetails = () => {
   useEffect(() => {
     const fetchMovieDetails = async () => {
       try {
-        const response = await fetch(
+        const response = await axios.get(
           `https://api.themoviedb.org/3/movie/${id}?api_key=${apiKey}&language=en-US&append_to_response=credits`
         );
-        const data = await response.json();
-        setMovieDetails(data);
+        setMovieDetails(response.data);
       } catch (error) {
         console.error("Error fetching movie details:", error);
       }
@@ -28,25 +29,48 @@ export const MovieDetails = () => {
   }, [id, apiKey]);
 
   if (!movieDetails) {
-    return <div>Loading...</div>;
+    return (
+      <div className="text-center text-lg font-semibold mt-10">Loading...</div>
+    );
   }
 
   return (
-    <div style={{ textAlign: "center", padding: "20px" }}>
-      <h1>{movieDetails.title}</h1>
+    <div className="max-w-4xl mx-auto p-6 bg-gray-900 text-white rounded-lg shadow-lg">
+      <h1 className="text-3xl font-bold mb-4 text-center">
+        {movieDetails.title}
+      </h1>
       <img
+        className="w-full md:w-1/2 mx-auto rounded-lg shadow-md"
         src={`https://image.tmdb.org/t/p/w500${movieDetails.poster_path}`}
         alt={movieDetails.title}
-        style={{ maxWidth: "100%", borderRadius: "10px" }}
       />
-      <p><strong>Description:</strong> {movieDetails.overview}</p>
-      <p><strong>Rating:</strong> {movieDetails.vote_average} / 10</p>
+      <p className="mt-4 text-gray-300">
+        <strong className="text-white">Description:</strong>{" "}
+        {movieDetails.overview}
+      </p>
+      <p className="mt-2 text-gray-300">
+        <strong className="text-white">Rating:</strong>{" "}
+        {movieDetails.vote_average} / 10
+      </p>
 
-      <h2>Actors</h2>
-      <ul style={{ listStyle: "none", padding: 0 }}>
+      <h2 className="text-2xl font-semibold mt-6 mb-4">Actors</h2>
+      <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
         {movieDetails.credits?.cast.slice(0, 5).map((actor) => (
-          <li key={actor.id}>
-            <strong>{actor.name}</strong> as {actor.character}
+          <li
+            key={actor.id}
+            className="flex flex-col items-center bg-gray-800 rounded-lg p-4 shadow-md"
+          >
+            <img
+              className="w-28 h-36 rounded-md mb-2"
+              src={
+                actor.profile_path
+                  ? `https://image.tmdb.org/t/p/w200${actor.profile_path}`
+                  : "https://via.placeholder.com/100x150"
+              }
+              alt={actor.name}
+            />
+            <strong className="text-lg">{actor.name}</strong>
+            <span className="text-sm text-gray-400">as {actor.character}</span>
           </li>
         ))}
       </ul>
