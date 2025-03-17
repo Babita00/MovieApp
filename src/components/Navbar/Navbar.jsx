@@ -35,11 +35,11 @@ const Navbar = () => {
               Contact
             </NavLink>
           </li>
-          <li>
+          {/* <li>
             <NavLink to="/movie-details" className="hover:text-grey-500">
               Movie Details
             </NavLink>
-          </li>
+          </li> */}
         </ul>
       </div>
     </div>
