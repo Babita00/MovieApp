@@ -75,12 +75,12 @@ const MoviesPage = () => {
 
   return (
     <div className="container mx-auto p-8 bg-gray-100 min-h-screen max-w-7xl">
+      important
+      {/*  */}
       <h1 className="text-3xl font-bold text-center mb-6 text-gray-800">
         Movies
       </h1>
-
       <SearchQuery onTextChange={onSearchText} />
-
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 w-full">
         {movies.map((movie, index) => (
           <div
@@ -114,7 +114,6 @@ const MoviesPage = () => {
           </div>
         ))}
       </div>
-
       <LoadMore
         onClick={() => {
           setPage(page + 1);
