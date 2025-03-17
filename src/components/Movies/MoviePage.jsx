@@ -68,18 +68,20 @@ const MoviesPage = () => {
   const onMovieClick = (movie) => {
     console.log(movie.id);
     //send api key, language without changing its oiriginal route
-    navigate(`/movie-details/${movie.id}?api_key=844dba0bfd8f3a4f3799f6130ef9e335`);
+    navigate(
+      `/movie-details/${movie.id}?api_key=844dba0bfd8f3a4f3799f6130ef9e335`
+    );
   };
 
   return (
-    <div className="container p-8 bg-gray-100 min-h-screen ">
+    <div className="container mx-auto p-8 bg-gray-100 min-h-screen max-w-7xl">
       <h1 className="text-3xl font-bold text-center mb-6 text-gray-800">
         Movies
       </h1>
 
       <SearchQuery onTextChange={onSearchText} />
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 w-full">
         {movies.map((movie, index) => (
           <div
             key={`${movie.id}-${index}`}
