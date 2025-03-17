@@ -75,8 +75,7 @@ const MoviesPage = () => {
 
   return (
     <div className="container mx-auto p-8 bg-gray-100 min-h-screen max-w-7xl">
-      important
-      {/*  */}
+      {/*  important*/}
       <h1 className="text-3xl font-bold text-center mb-6 text-gray-800">
         Movies
       </h1>
